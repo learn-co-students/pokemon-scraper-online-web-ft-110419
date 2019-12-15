@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require_relative './environment'
+
+# included with require_all
+def reload!
+	load_all './lib'
+end
+
+Pry.start
