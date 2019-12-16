@@ -1,17 +1,15 @@
 require "pry"
 class Pokemon
   attr_accessor :name, :type, :db ,:id 
-  def initialize(id:, name:, type:,db:)
-    @id
-    @name
-    @type
-    @db
+  def initialize(id:, name:, type:, hp: nil , db:)
+    @id,
+    @name,
+    @type,
+    @hp,
+    @db = id, name, type, hp, db
   end
   def self.save(name,type,db)
-    sql = <<-SQL
-     INSERT INTO pokemon(name,type) values (?,?)
-    SQL
-    db.execute(sql,name,type)
+    db.execute("INSERT INTO pokemon(name,type) values (?,?)",name,type)
   end
   def self.find(id,db)
     
